@@ -18,7 +18,6 @@ function addFriend(){
       // Caso contrario: se agrega a la lista
       friendsList.push(nameFriend);
    }
-   console.log(friendsList);
    return;
 }
 
@@ -33,8 +32,22 @@ function updateFriendsList() {
       friend.innerHTML = `${friendsList[i]}`;
       showedList.appendChild(friend);
    }
+   return;
 }
 
+// Funcion para sortear al amigo secreto
+function raffleSecretFriend() {
+   // Limpia la lista que muestra los nombres agregados
+   showedList.innerHTML = "";
+   // Selecciona el elemento en donde se mostrara el resultado
+   const showSecretFriend = document.getElementById('resultado');
+   // Se genera un numero pseudo-aleatorio y se multiplica por la longitud de la lista de amigos
+   let indexFriend = Math.floor(Math.random()*friendsList.length);
+   // Crea el elemento <li> en donde se muestra el amigo sorteado
+   let secretFriend = document.createElement('li');
+   secretFriend.innerHTML = `${friendsList[indexFriend]} es tu amigo secreto!`;
+   showSecretFriend.appendChild(secretFriend);
+}
 
 // Funcion para limpiar la caja de texto
 function cleanInputBox(){
