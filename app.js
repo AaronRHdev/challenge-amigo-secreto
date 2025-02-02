@@ -1,23 +1,27 @@
 // El principal objetivo de este desafío es fortalecer tus habilidades en lógica de programación. Aquí deberás desarrollar la lógica para resolver el problema.
 
-let nameFriend = "";
 const friendsList = [];
 const showedList = document.getElementById('listaAmigos');
 
 // Funcion para agregar amigos
 function addFriend(){
    // Se obtiene el valor del input con el id: 'amigo', y se guarda en la variable addNameFriend
-   nameFriend = document.getElementById('amigo').value;
+   let nameFriend = document.getElementById('amigo').value;
    cleanInputBox();
 
-   // Se evalua si el nombre ya existe en la lista de amigos
-   if(friendsList.includes(nameFriend)){
-      // En caso de existir el nombre se lanza alerta
-      alert("Atencion! Ya has ingresado este nombre");
-   }  else {
-      // Caso contrario: se agrega a la lista
-      friendsList.push(nameFriend);
+   if (nameFriend = document.getElementById('amigo').value === ''){
+      alert("Por favor ingresa un nombre");
+   } else {
+      // Se evalua si el nombre ya existe en la lista de amigos
+      if(friendsList.includes(nameFriend)){
+         // En caso de existir el nombre se lanza alerta
+         alert("Atencion! Ya has ingresado este nombre");
+      }  else {
+       // Caso contrario: se agrega a la lista
+         friendsList.push(nameFriend);
+      }
    }
+   
    return;
 }
 
@@ -37,16 +41,21 @@ function updateFriendsList() {
 
 // Funcion para sortear al amigo secreto
 function raffleSecretFriend() {
-   // Limpia la lista que muestra los nombres agregados
-   showedList.innerHTML = "";
-   // Selecciona el elemento en donde se mostrara el resultado
-   const showSecretFriend = document.getElementById('resultado');
-   // Se genera un numero pseudo-aleatorio y se multiplica por la longitud de la lista de amigos
-   let indexFriend = Math.floor(Math.random()*friendsList.length);
-   // Crea el elemento <li> en donde se muestra el amigo sorteado
-   let secretFriend = document.createElement('li');
-   secretFriend.innerHTML = `${friendsList[indexFriend]} es tu amigo secreto!`;
-   showSecretFriend.appendChild(secretFriend);
+   if (friendsList.length > 0){
+      // Limpia la lista que muestra los nombres agregados
+      showedList.innerHTML = "";
+      // Selecciona el elemento en donde se mostrara el resultado
+      const showSecretFriend = document.getElementById('resultado');
+      // Se genera un numero pseudo-aleatorio y se multiplica por la longitud de la lista de amigos
+      let indexFriend = Math.floor(Math.random()*friendsList.length);
+      // Crea el elemento <li> en donde se muestra el amigo sorteado
+      let secretFriend = document.createElement('li');
+      secretFriend.innerHTML = `${friendsList[indexFriend]} es tu amigo secreto!`;
+      showSecretFriend.appendChild(secretFriend);
+   } else {
+      alert("No hay amigos disponibles para sortear");
+   }
+   
 }
 
 // Funcion para limpiar la caja de texto
