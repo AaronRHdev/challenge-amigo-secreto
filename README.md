@@ -1,2 +1,6 @@
-# challenge-amigo-secreto
-Desafio proporcionado por Alura, sorteara un amigo secreto con base en los amigos introducidos.
+<h1 align="center">🏆 Challenge: Amigo Secreto</h1>
+<p align="center">
+    <img src="./assets/for-README/principal.png">
+</p>
+
+## Descripcion del proyecto.
